@@ -15,10 +15,10 @@ const images = [
 
 const ul = document.querySelector("ul.gallery");
 
-images.forEach((image) => {
-  const img = `<img src="${image.url}" alt="${image.alt}">`;
-  ul.insertAdjacentHTML("beforeend", `<li>${img}</li>`);
-});
+const allImages = images
+  .map((image) => `<img src="${image.url}" alt="${image.alt}">`)
+  .join("");
+ul.insertAdjacentHTML("beforeend", allImages);
 
 ul.style.display = "flex";
 ul.style.justifyContent = "space-evenly";
