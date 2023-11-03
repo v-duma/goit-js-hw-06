@@ -9,7 +9,12 @@ const ingredients = [
 
 const ul = document.querySelector("ul#ingredients");
 
-const allItems = ingredients
-  .map((ingredient) => `<li class="item">${ingredient}</li>`)
-  .join("");
-ul.insertAdjacentHTML("beforeend", allItems);
+function allItems(array) {
+  array.forEach((ingredient) => {
+    const li = document.createElement("li");
+    li.textContent = ingredient;
+    li.classList.add("item");
+    ul.append(li);
+  });
+}
+allItems(ingredients);
